@@ -1,0 +1,13 @@
+---
+# Instala wireshark y crea el grupo wireshark al que deben pertenecer sus usuarios
+- name: Crea el grupo wireshark
+  group:
+    name: wireshark
+    state: present
+    system: yes
+
+- name: Instala Apache y PHP
+  action: apt pkg={{ item }} state=installed
+  with_items:
+    - wireshark
+

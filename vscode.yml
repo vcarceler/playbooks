@@ -1,0 +1,9 @@
+# Instala el repositorio para vscode
+#
+# PROBLEMA: añadir el parámetro [arch=amd64] a la definición del repositorio. Ansible no tiene el parámetro.
+# Instala code
+# Actualiza code a la última versión
+- name: Instala el repositorio de vscode
+  apt_repository:
+    repo: deb http://packages.microsoft.com/repos/vscode stable main
+    state: present

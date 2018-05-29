@@ -1,0 +1,13 @@
+---
+# LXD: Cambia la configuración de /etc/default/lxd-bridge
+# No es el único cambio necesario para LXD, también hay que
+# modificar /etc/network/interfaces para definir de forma manual
+# un puente y poner dentro a la interfaz ethernet.
+#
+# Este cambio se hace con scripts/cambia_puente_lxd
+#
+- name: LXD Cambia /etc/default/lxd-bridge a USE_LXD_BRIDGE=false
+  replace:
+    dest: /etc/default/lxd-bridge
+    regexp: '^USE_LXD_BRIDGE="true"'
+    replace: 'USE_LXD_BRIDGE="false"'

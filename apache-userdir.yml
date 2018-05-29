@@ -1,0 +1,14 @@
+---
+# Instala Apache y PHP
+- name: Instala Apache y PHP
+  action: apt pkg={{ item }} state=present
+  with_items:
+    - apache2
+    - apache2-utils
+    - libapache2-mod-php
+    - php
+
+# Activa el módulo userdir de Apache
+- apache2_module:
+    state: present
+    name: userdir

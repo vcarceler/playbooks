@@ -1,0 +1,9 @@
+---
+# Tareas específicas de las aulas de informática
+#
+
+# Apagado 14:55
+- include: apagado-1455.yml
+
+# Apagado 21:30
+- include: apagado-2130.yml

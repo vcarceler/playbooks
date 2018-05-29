@@ -1,0 +1,128 @@
+---
+#
+# Instalación general de paquetes para Informàtica (DPT y Aulas)
+#
+# Ubuntu 18.04LTS
+#
+
+# Repositorio para GNS3
+- name: Añade respositorio de GNS3 (para instalar gns3-gui)
+  action: apt_repository repo='ppa:gns3/ppa' state=present
+
+# Instalación de Atom y Visual Studio Code
+#- include: local-packages.yml
+
+# Desinstala Atom y Visual Studio Code
+#- name: Desinstala atom y vscode
+#  action: apt pkg={{ item }} state=absent
+#  with_items:
+#    - atom
+#    - vscode
+
+- name: Instala snap atom
+  snap:
+        name: atom
+        classic: yes
+
+- name: Instala snap vscode
+  snap:
+        name: vscode
+        classic: yes
+
+- name: Instala snap brackets
+  snap:
+        name: brackets
+        classic: yes
+
+- name: Instala snap darktable
+  snap:
+        name: darktable
+
+
+# Instala Apache con el módulo userdir
+- include: apache-userdir.yml
+
+# Instala wireshark
+#- include: wireshark.yml
+
+# Actualiza a la última versión
+- name: Actualiza a la última versión
+  action: apt pkg={{ item }} state=latest update_cache=yes
+  with_items:
+    - chromium-browser
+    - chromium-browser-l10n
+    - firefox
+    - firefox-locale-ca
+    - gns3-gui
+    - gns3-server
+    - libnss3
+    - net-tools
+    - vim
+
+# Instalación de paquetes
+- name: Instalación de paquetes
+  action: apt pkg={{ item }} state=present
+  with_items:
+    - arduino
+    - audacity
+    - blender
+    - bluefish
+    - ncdu
+    - freecad
+    - fritzing
+    - gimp
+    - gnome-boxes
+    - krita
+    - krita-l10n
+    - kicad
+    - kicad-doc-es
+    - libguestfs-tools
+    - libwebkitgtk-1.0-0
+    - libwebkitgtk-3.0-0
+    - lyx
+    - texlive-lang-spanish
+    - inkscape
+    - ipcalc
+    - librecad
+    - default-jdk
+    - slic3r
+    - openshot
+    - ovmf
+    - planner
+    - pylint
+    - pylint3
+    - python3-pylint-django
+    - python-pip
+    - python3-pip
+    - relational
+    - scratch
+    - shutter
+    - virt-top
+    - pgadmin3
+    - dialog
+    - vpcs
+    - blender
+    - recordmydesktop
+    - gtk-recordmydesktop
+    - git
+    - virtualbox
+    #- virtualbox-ext-pack
+    - virtualenv
+    - python3-docutils
+    - rest2web
+    - docutils-doc
+    - filezilla
+    - unrar
+    - dia
+    - dia2code
+    - dia-rib-network
+    - dia-shapes
+    - rst2pdf
+    - python-pypdf2
+    - python3-pypdf2
+    - vlc
+    - tshark
+    # KVM
+    - qemu-kvm
+    - libvirt-bin
+    - virt-manager

@@ -1,0 +1,31 @@
+---
+- hosts: torvalds
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - include: /home/vcarceler/playbooks/default.yml
+
+    # Cambia el hostname
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=torvalds
+
+    # Cambia la configuración para LXD
+    - include: lxd.yml
+
+    # Operaciones generales de informática
+    - include: /home/vcarceler/playbooks/informatica.yml
+
+    # Operaciones específicas de las aulas de informática
+    - include: aulas-informatica.yml
+
+    # Usuarios
+    - include: users/smx2a.yml
+    - include: users/dam1a.yml
+
+    # Instalación de paquetes
+#    - name: General | Instalación de paquetes
+#      action: apt pkg={{ item }} state=installed
+#      with_items:
+#        - bluefish
+#        - relational
+#        - ovmf

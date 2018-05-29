@@ -1,0 +1,180 @@
+---
+- hosts: 192.168.17.29
+  user: root
+
+  handlers:
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
+
+    - name: configure br0
+      blockinfile:
+        dest: /etc/network/interfaces
+        block: |
+          # Puente br0 para lxd y kvm
+          auto {{ ansible_default_ipv4.interface }}
+          iface {{ ansible_default_ipv4.interface }} inet manual
+
+          auto br0
+          iface br0 inet dhcp
+            bridge_ports {{ ansible_default_ipv4.interface }}
+
+    - name: configure lxd0
+      command: systemctl restart networking
+    - name: configure lxd1
+      command: lxc storage create pool dir
+    - name: configure lxd2
+      command: lxc profile device add default root disk path=/ pool=pool
+    - name: configure lxd3
+      command: lxc network attach-profile br0 default
+
+  tasks:
+    # Tareas por defecto
+    - include: default.yml
+
+    # Cambio de hostname
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dptinf
+
+    # Cambio en la configuración de sshd para bloquear la autenticación con password
+    - name: Bloquea la autenticación con password en /etc/ssh/sshd_config
+      replace:
+        dest: /etc/ssh/sshd_config
+        regexp: '^#PasswordAuthentication yes'
+        replace: 'PasswordAuthentication no'
+      notify:
+        - restart sshd
+
+    # Tareas generales de informática (DPT y Aulas)
+    #
+
+    # Borrado de usuarios por defecto (mati y tarda)
+    - include: del-default-users.yml
+
+
+    # Repositorio para GNS3
+    - name: Añade respositorio de GNS3 (para instalar gns3-gui)
+      action: apt_repository repo='ppa:gns3/ppa' state=present
+
+    # Instalación de Atom y Visual Studio Code
+    - include: local-packages.yml
+
+
+    # Instala Apache y PHP
+    - name: Instala Apache y PHP
+      action: apt pkg={{ item }} state=installed
+      with_items:
+        - apache2
+        - apache2-utils
+        - libapache2-mod-php
+        - php
+
+    # Activa el módulo userdir de Apache
+    - apache2_module:
+        state: present
+        name: userdir
+
+    # Actualiza a la última versión
+    - name: Actualiza a la última versión
+      action: apt pkg={{ item }} state=latest update_cache=yes
+      with_items:
+        - chromium-browser
+        - chromium-browser-l10n
+        - firefox
+        - firefox-locale-ca
+        - gns3-gui
+        - gns3-server
+        - libnss3
+        - net-tools
+        - vim
+        #- wireshark
+
+    # Instalación de paquetes
+    - name: Instalación de paquetes
+      action: apt pkg={{ item }} state=installed
+      with_items:
+        - arduino
+        - audacity
+        - blender
+        - bluefish
+        - ncdu
+        - freecad
+        - fritzing
+        - gimp
+        - gnome-boxes
+        - kicad
+        - kicad-doc-es
+        - libguestfs-tools
+        - libwebkitgtk-1.0-0
+        - libwebkitgtk-3.0-0
+        - lyx
+        - texlive-lang-spanish
+        - inkscape
+        - ipcalc
+        - librecad
+        - default-jdk
+        - slic3r
+        - openshot
+        - ovmf
+        - planner
+        - pylint
+        - pylint3
+        - python3-pylint-django
+        - python-pip
+        - python3-pip
+        - relational
+        - scratch
+        - shutter
+        - virt-top
+        - pgadmin3
+        - dialog
+        - vpcs
+        - blender
+        - recordmydesktop
+        - gtk-recordmydesktop
+        - git
+        - virtualbox
+        #- virtualbox-ext-pack
+        - virtualenv
+        - python3-docutils
+        - rest2web
+        - docutils-doc
+        - filezilla
+        - unrar
+        - dia
+        - dia2code
+        - dia-rib-network
+        - dia-shapes
+        - rst2pdf
+        - python-pypdf2
+        - python3-pypdf2
+        - vlc
+        - tshark
+        # KVM
+        - qemu-kvm
+        - libvirt-bin
+        - virt-manager
+
+
+    # Configura LXD
+    - name: Instala bridge-utils y LXD
+      action: apt pkg={{ item }} state=installed
+      with_items:
+        - bridge-utils
+        - lxd
+
+    # Comprueba que no esté configurado LXD para no destrozar /etc/network/interfaces
+    # en la segunda ejecución, al ser la interfaz principal br0
+    - name: Comprueba si es necesario configurar el puente br0 en /etc/network/interfaces
+      lineinfile:
+        dest: /etc/network/interfaces
+        line: '# LXD configurado'
+      notify:
+        - configure br0
+        - configure lxd0
+        - configure lxd1
+        - configure lxd2
+        - configure lxd3
+
+    # Usuarios
+    - include: users/informatica-u1804/prueba.yml

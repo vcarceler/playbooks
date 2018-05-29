@@ -1,0 +1,8 @@
+---
+- hosts: ada
+  user: root
+
+  tasks:
+    # Reinicia los equipos
+    - name: General | Reinicia los equipos
+      command: init 6

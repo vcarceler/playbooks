@@ -1,0 +1,7 @@
+---
+- hosts: 192.168.17.28
+  user: root
+
+  tasks:
+    # Alta de usuarios
+    - include: vasilisa.yml

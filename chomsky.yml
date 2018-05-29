@@ -1,0 +1,57 @@
+---
+- hosts: chomsky
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - include: /home/vcarceler/playbooks/default.yml
+
+    # Cambia el hostname
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=chomsky
+
+    # Alta de usuarios (mkpasswd --method=sha-512)
+    - include: /home/vcarceler/playbooks/aif-users.yml
+    - include: /home/vcarceler/playbooks/chomsky-users.yml
+    - include: /home/vcarceler/playbooks/default-users.yml
+
+    # Apagado 14:55
+    - include: /home/vcarceler/playbooks/apagado-1455.yml
+
+    # Actualiza a la última versión
+    - name: Actualiza a la última versión
+      action: apt pkg={{ item }} state=latest update_cache=yes
+      with_items:
+        - firefox
+        - firefox-locale-ca
+
+    # Instalación de paquetes
+    - name: General | Instalación de paquetes
+      action: apt pkg={{ item }} state=installed
+      with_items:
+        - ekiga
+        - openshot
+        - blender
+        - shutter
+        - gnome-web-photo
+        - hugin
+        - audacity
+        - wine
+        - p7zip-rar
+        - libreoffice-l10n-es
+        - myspell-es
+        - aspell-es
+        - nautilus-image-converter
+        - vlc
+        - klavaro
+        - ktouch
+        - kazam
+        - winff
+        - gnome-system-tools
+        - normalize-audio
+        - id3v2
+        - qtgain
+        - gnome-subtitles
+        - soundconverter
+        - chromium-browser
+        - virtualbox-ext-pack
+        - libreoffice-report-builder

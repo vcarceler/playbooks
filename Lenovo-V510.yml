@@ -1,0 +1,49 @@
+---
+- hosts: lenovo-v510
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - include: /home/vcarceler/playbooks/default.yml
+
+    # Cambia el hostname
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=tecno
+
+    # Operaciones generales de informática
+    - include: /home/vcarceler/playbooks/informatica.yml
+
+    # Operaciones específicas de las aulas de informática
+    - include: aulas-informatica.yml
+
+    # Usuarios ESO
+    - include: users/franja2.yml
+    - include: users/optativa.yml
+    - include: users/3a.yml
+    - include: users/3b.yml
+    - include: users/3c.yml
+    - include: users/3d.yml
+    - include: users/informatica.yml
+
+
+    # Instalación de paquetes
+#    - name: General | Instalación de paquetes
+#      action: apt pkg={{ item }} state=installed
+#      with_items:
+#         - browser-plugin-freshplayer-pepperflash
+#         - /opt/packages/S4A16.deb
+#        - libwebkitgtk-1.0-0
+#        - freecad
+#        - openscad
+#        - inkscape
+#        - blender
+#        - pgadmin3
+#        - git-all
+#        - kicad
+#        - kicad-doc-es
+
+    # Desinstala paquetes
+    - name: Quitamos paquetes (S4A16)
+      action: apt pkg={{ item }} state=absent
+      with_items:
+        - /opt/packages/S4A16.deb
+        - browser-plugin-freshplayer-pepperflash

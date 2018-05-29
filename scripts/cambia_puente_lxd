@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Este script cambia la configuración de red para que la interfaz
+# de red forme parte del puente lxdbr0 que utilizan los contenedores.
+#
+
+# Si en /etc/network/interfaces ya aparece lxdbr0 no hacemos nada
+grep lxdbr0 /etc/network/interfaces && exit 0
+
+interfaz=$(ifconfig | head -n1 | cut -f1 -d' ')
+
+echo "" >>/etc/network/interfaces
+echo "# Configuro un puente para los contenedores" >>/etc/network/interfaces
+echo "auto $interfaz" >>/etc/network/interfaces
+echo "iface $interfaz inet manual" >>/etc/network/interfaces
+echo "" >>/etc/network/interfaces
+echo -e "auto lxdbr0\niface lxdbr0 inet dhcp\n\tbridge_ports $interfaz" >>/etc/network/interfaces
+
+# Cambio el fichero /etc/default/lxd-bridge
+#cat /etc/default/lxd-bridge | sed "s/USE_LXD_BRIDGE=\"true\"/USE_LXD_BRIDGE=\"false\"/" >/tmp/lxd-bridge
+#mv /tmp/lxd-bridge /etc/default/lxd-bridge

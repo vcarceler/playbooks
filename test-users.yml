@@ -1,0 +1,8 @@
+---
+- hosts: dpt-inf
+  user: root
+
+  tasks:
+    # Alta de usuarios
+    - include: /home/vcarceler/playbooks/aif-users.yml
+    - include: /home/vcarceler/playbooks/chomsky-users.yml

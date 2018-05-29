@@ -1,0 +1,25 @@
+---
+- hosts: dpt-erasmus
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - include: default.yml
+
+    # Cambia el hostname
+    - include: cambia-hostname.yml base_hostname=dpterasmus
+
+    # Borrado de los usuarios por defecto
+    - include: del-default-users.yml
+
+    # Actualiza a la última versión
+    - name: Actualiza a la última versión
+      action: apt pkg={{ item }} state=latest update_cache=yes
+      with_items:
+        - firefox
+        - firefox-locale-ca
+        - chromium-browser
+        - chromium-browser-l10n
+
+    # Usuario
+    - include: users/mundus.yml

@@ -1,0 +1,7 @@
+---
+- hosts: dpt-inf
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dptinf

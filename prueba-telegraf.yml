@@ -1,0 +1,12 @@
+---
+- hosts: 192.168.17.147
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - name: Activa en Telegraf las métricas de red
+      replace:
+        dest: /etc/telegraf/telegraf.conf
+        regexp: '^\# \[\[inputs.net\]\]$'
+        replace: '[[inputs.net]]'
+

@@ -1,0 +1,7 @@
+---
+- hosts: 192.168.10.154
+  user: root
+
+  tasks:
+    # Cambio de /etc/network/interfaces
+    - include: lxd.yml

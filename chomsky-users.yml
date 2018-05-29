@@ -1,0 +1,6 @@
+---
+# Alta de usuarios (mkpasswd --method=sha-512)
+- name: Usuario eso1
+  action: user name=eso1 groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$J2EoimeNUGmAo$LHe3zKSEqH70dWvjEZC.jDTh3fEY/woEvDQspEzLBHYwnXJkNdVpHVlDlMnGnXTt9f4e78DEXT/Dk490JS7ya1
+- name: Usuario eso2
+  action: user name=eso2 groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$jcvn7qXiYtQwdF$e4PXpS1.RZF7/w0ePeWDx.71xV9eLAnMJZxobVu.jSNf5Sr9jvOKA/83HWeI7hYUstulKSFdkBaFtGxVHWn720

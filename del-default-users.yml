@@ -1,0 +1,10 @@
+---
+# Borra los usuarios por defecto mati, tarda, usuariinstall
+- name: Borrado del usuario mati
+  action: user name=mati state=absent remove=yes
+- name: Borrado del usuario tarda 
+  action: user name=tarda state=absent remove=yes
+- name: Borrado del usuario usuariinstall
+  action: user name=usuariinstall state=absent remove=yes
+- name: Borrado del usuario prueba
+  action: user name=prueba state=absent remove=yes

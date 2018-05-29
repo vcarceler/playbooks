@@ -1,0 +1,16 @@
+---
+# Alta de usuarios (mkpasswd --method=sha-512)
+- name: Usuario GA1a
+  action: user name=GA1a state=absent remove=yes
+
+- name: Usuario GA1b
+  action: user name=GA1b state=absent remove=yes
+
+- name: Usuario GA2
+  action: user name=GA2 state=absent remove=yes
+
+- name: Usuario AF-cat 
+  action: user name=AF-cat state=absent remove=yes
+
+- name: Usuario AF-eng 
+  action: user name=AF-eng state=absent remove=yes

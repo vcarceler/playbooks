@@ -1,0 +1,6 @@
+---
+# Alta de usuarios (mkpasswd --method=sha-512)
+- name: Usuario por defecto mati
+  action: user name=mati groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$uEbLaqub3m7Hdr$DNEKUHAL/1buNlPjdE3Qwd9VACH/UUDfJ0YmBadjOD.Jp2Qi46q7zi6X9B49NpFRt9Pd/Et4A1vMKZ.US3Vm2/
+- name: Usuario por defecto tarda
+  action: user name=tarda groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$DtWXLABoXVsn8$As8cbQdGae0u0cLu25rpLTJBO2Vul75CYvoMg6RMF9VubS77YpBFQXRyA/4Ja7wTqWHZ3EjncqccKUYmkulDa.

@@ -1,0 +1,9 @@
+---
+- hosts: snowden
+  user: root
+
+  tasks:
+    # Reinicia los equipos
+    - name: General | Apaga los equipos
+      command: init 0
+

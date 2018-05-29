@@ -1,0 +1,12 @@
+# Copia los paquetes en /opt/packages
+- name: Copia los paquetes en /opt/packages
+  copy:
+    src: packages
+    dest: /opt
+    owner: root
+    group: root
+- name: Instala los paquetes de /opt/packages
+  action: apt deb={{ item }} state=installed
+  with_items:
+    - /opt/packages/atom-amd64.deb
+    - /opt/packages/code_1.12.2-1494422229_amd64.deb

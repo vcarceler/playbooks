@@ -1,0 +1,9 @@
+---
+- hosts: 192.168.10.101
+  user: root
+
+  tasks:
+    # Cambio de /etc/network/interfaces
+    # Este playbook se lanza de manera individual
+    # para los ordenadores reinstalados
+    - script: scripts/cambia_puente_lxd

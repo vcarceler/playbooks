@@ -1,0 +1,4 @@
+---
+# Alta de usuario admin (para administrar) (mkpasswd --method=sha-512)
+- name: Borro el usuario admin
+  action: user name=admin state=absent remove=yes

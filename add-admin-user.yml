@@ -1,0 +1,4 @@
+---
+# Alta de usuario admin (para administrar) (mkpasswd --method=sha-512)
+- name: Añado el usuario admin
+  action: user name=admin groups=adm,sudo,dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$K80AL9kkG.Q$vRqyXZ4XQYzuViznD8ATESDVWCDl/7Iziabp2xENJ2TGSWAWZt4uR2BPMrtX3QUVGToLfTZrI3I5SZkKZoEs2/

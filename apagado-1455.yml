@@ -1,0 +1,4 @@
+---
+# Apaga las máquinas a las 14:55
+- name: Apaga las máquinas a las 14:55
+  action: cron name="apagado 14:55" minute="55" hour="14" job="/sbin/init 0"

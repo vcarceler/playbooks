@@ -1,0 +1,6 @@
+---
+- hosts: fisicaiquimica
+  user: root
+
+  tasks:
+    - include: users/fisicaiquimica.yml

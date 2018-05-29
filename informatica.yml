@@ -1,0 +1,109 @@
+---
+# Tareas generales de informática (DPT y Aulas)
+#
+
+# Borrado de usuarios por defecto (mati y tarda)
+- include: del-default-users.yml
+
+# Repositorio para GNS3
+- name: Añade respositorio de GNS3 (para instalar gns3-gui)
+  action: apt_repository repo='ppa:gns3/ppa' state=present
+
+# Instalación de Atom y Visual Studio Code
+- include: local-packages.yml
+
+# Desactivado porque ya está en default.yml
+# Instala y configura Telegraf
+#- include: telegraf.yml
+
+# Instala Apache y PHP
+- name: Instala Apache y PHP
+  action: apt pkg={{ item }} state=installed
+  with_items:
+    - apache2
+    - apache2-utils
+    - libapache2-mod-php
+    - php
+
+# Activa el módulo userdir de Apache
+- apache2_module:
+    state: present
+    name: userdir
+
+# Actualiza a la última versión
+- name: Actualiza a la última versión
+  action: apt pkg={{ item }} state=latest update_cache=yes
+  with_items:
+    - firefox
+    - firefox-locale-ca
+    - chromium-browser
+    - chromium-browser-l10n
+    - libnss3
+#    - libnss3-nssdb
+    - gns3-gui
+    - gns3-server
+
+# Instalación de paquetes
+- name: Instalación de paquetes
+  action: apt pkg={{ item }} state=installed
+  with_items:
+    - arduino
+    - audacity
+    - blender
+    - bluefish
+    - ncdu
+    - freecad
+    - fritzing
+    - gimp
+    - gnome-boxes
+    - kicad
+    - kicad-doc-es
+    - libguestfs-tools
+    - libwebkitgtk-1.0-0
+    - libwebkitgtk-3.0-0
+    - lyx
+    - texlive-lang-spanish
+    - inkscape
+    - ipcalc
+    - librecad
+    - default-jdk
+    - openscad
+    - slic3r
+    - openshot
+    - ovmf
+    - planner
+    - pylint
+    - pylint3
+    - python-pylint-django
+    - python3-pylint-django
+    - python-pip
+    - python3-pip
+    - relational
+    - scratch
+    - shutter
+    - virt-top
+    - pgadmin3
+    - dialog
+    - vpcs
+    - blender
+    - recordmydesktop
+    - gtk-recordmydesktop
+    - git
+    - virtualbox-ext-pack
+    - virtualenv
+    - python3-docutils
+    - rest2web
+    - docutils-doc
+    - filezilla
+    - unrar
+    - dia
+    - dia2code
+    - dia-rib-network
+    - dia-shapes
+    - pdftk
+    - rst2pdf
+    - python-pypdf2
+    - python3-pypdf2
+    - vlc
+    - tshark
+

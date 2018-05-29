@@ -1,0 +1,20 @@
+---
+- hosts: dpt-inf
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - include: /home/vcarceler/playbooks/default.yml
+
+    # Cambia el hostname
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dptinf
+
+    # Operaciones generales de informática
+    - include: /home/vcarceler/playbooks/informatica.yml
+
+
+    # Instalación dpt-aif
+#    - name: General | Instalación de paquetes
+#      action: apt pkg={{ item }} state=installed
+#      with_items:
+#        - virtualbox-ext-pack

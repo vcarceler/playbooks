@@ -1,0 +1,12 @@
+---
+# Alta de usuarios (mkpasswd --method=sha-512)
+- name: Usuario GA1a
+  action: user name=GA1a groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$bX8BIRJ59FLR$KrQ/e2/g6Jb7N8umLTk2S6lvjnxNNJHMYG/xFRrZ1hhpfCf04t8CDAJmXerB447Ayivc66Zt1sQeYmHFDgdKa/
+- name: Usuario GA1b
+  action: user name=GA1b groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$41v3T05wvoolX$GuGmi5b.a5EelAn7ilSQnyRpabF0Tt9pIKBeasUjyCKvNDvYffUb/Fyb6Rhy/pD17J3iLzmjWwIBZGD2nbDfI.
+- name: Usuario GA2
+  action: user name=GA2 groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$HIN7lszjJFblW3aX$vvQu/TLcfmUtye.9bVcohcKLW9fabzXAfvi/SwDE4x26TNlLRT.AVkw8JkW0hVn37HRT3iYnnEFGkLqrexUKu1
+- name: Usuario AF-cat 
+  action: user name=AF-cat groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$lS/sP2RUKQG$AZt3xalcitcJYI1SmHNHPM6KLFziW3jvQYUWiDhwj9K3UWz9hWxK0jc5iHjDxX3g/WyZTBmsD7CiIMLSja.iX.
+- name: Usuario AF-eng 
+  action: user name=AF-eng groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$CtgDlbXw7Gs7hHYE$1oJYTYejBoh9XDpEqkDGYu06iuhljZ9RjB7WN6OH6hT3ZvJYqBThihFcolBv7g4YIPE453wNF8wuJ.87Sn/hv/

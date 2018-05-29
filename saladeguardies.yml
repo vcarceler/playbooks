@@ -1,0 +1,14 @@
+---
+- hosts: saladeguardies
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - include: default.yml
+
+    # Cambia el hostname
+    - include: cambia-hostname.yml base_hostname=saladeguardies
+
+    # Operaciones generales de informática
+    - include: informatica.yml
+

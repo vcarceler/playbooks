@@ -1,0 +1,23 @@
+- name: Copia los paquetes en /opt/packages
+  copy:
+    src: packages
+    dest: /opt
+    owner: root
+    group: root
+
+- name: Instala telegraf de /opt/packages
+  action: apt deb={{ item }} state=present
+  with_items:
+    - /opt/packages/telegraf_1.5.1-1_amd64.deb
+
+- name: Configura Telegraf con la IP de InfluxDB
+  replace:
+    dest: /etc/telegraf/telegraf.conf
+    regexp: '^  urls \= \[\"http\:\/\/127\.0\.0\.1\:8086\"\] \# required$'
+    replace: '  urls = ["http://192.168.0.114:8086"] # required'
+
+- name: Activa en Telegraf las métricas de red
+  replace:
+    dest: /etc/telegraf/telegraf.conf
+    regexp: '^\# \[\[inputs.net\]\]$'
+    replace: '[[inputs.net]]'
