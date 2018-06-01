@@ -26,9 +26,10 @@
 
 
     # Instalación de paquetes
-#    - name: General | Instalación de paquetes
-#      action: apt pkg={{ item }} state=installed
-#      with_items:
+    - name: General | Instalación de paquetes
+      action: apt pkg={{ item }} state=installed
+      with_items:
+        - flashplugin-installer
 #         - browser-plugin-freshplayer-pepperflash
 #         - /opt/packages/S4A16.deb
 #        - libwebkitgtk-1.0-0
