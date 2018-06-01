@@ -1,0 +1,7 @@
+---
+
+- name: Desactiva gnome-initial-setup
+  lineinfile:
+        create: yes
+        state: present
+        path: 
