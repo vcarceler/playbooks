@@ -53,6 +53,7 @@
     - chromium-browser-l10n
     - firefox
     - firefox-locale-ca
+    - flashplugin-installer
     - gns3-gui
     - gns3-server
     - libnss3

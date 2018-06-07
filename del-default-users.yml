@@ -8,3 +8,5 @@
   action: user name=usuariinstall state=absent remove=yes
 - name: Borrado del usuario prueba
   action: user name=prueba state=absent remove=yes
+- name: Borrado del usuario manteniment
+  action: user name=manteniment state=absent remove=yes

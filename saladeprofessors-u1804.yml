@@ -56,6 +56,9 @@
 
     # Borrado de usuarios por defecto (mati y tarda)
     - include: del-default-users.yml
+    
+    # Alta del usuario administrador
+    #- include: users/informatica-u1804/manteniment.yml
 
     # Usuario invitado
     - include: convidat.yml

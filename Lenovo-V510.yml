@@ -25,9 +25,9 @@
     - include: users/informatica.yml
 
 
-    # Instalación de paquetes
-    - name: General | Instalación de paquetes
-      action: apt pkg={{ item }} state=installed
+    # Actualización de paquetes
+    - name: General | Actualización de paquetes
+      action: apt pkg={{ item }} state=latest update_cache=yes
       with_items:
         - flashplugin-installer
 #         - browser-plugin-freshplayer-pepperflash
