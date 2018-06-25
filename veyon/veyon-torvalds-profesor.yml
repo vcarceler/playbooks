@@ -1,0 +1,35 @@
+---
+
+- hosts: torvalds-profesor
+  user: root
+
+  tasks:
+
+    - name: Instalación de Veyon
+      apt:
+        deb: https://github.com/veyon/veyon/releases/download/v4.0.7/veyon_4.0.7-ubuntu-artful_amd64.deb
+
+    - name: Crea el directorio de configuración de Veyon
+      file:
+        path: /etc/xdg/Veyon Solutions
+        state: directory
+
+    - name: Copia el fichero de configuración de Veyon profesor Torvalds
+      copy:
+        src: torvalds/Veyon.conf
+        dest: /etc/xdg/Veyon Solutions/Veyon.conf
+
+    - name: Crea el directorio para guardar la clave pública del profesor
+      file:
+        path: /etc/veyon/keys/private/teacher
+        state: directory
+
+    - name: Crea el grupo veyon
+      group:
+        name: veyon
+
+    - name: Copia la clave privada del profesor
+      copy:
+        src: torvalds/keys/private.key
+        dest: /etc/veyon/keys/private/teacher/key
+        group: veyon

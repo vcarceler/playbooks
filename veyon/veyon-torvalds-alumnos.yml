@@ -1,0 +1,53 @@
+---
+
+- hosts: torvalds-alumnos
+  user: root
+
+  tasks:
+
+    - name: Instalación de Veyon
+      apt:
+        deb: https://github.com/veyon/veyon/releases/download/v4.0.7/veyon_4.0.7-ubuntu-artful_amd64.deb
+
+    - name: Crea el directorio de configuración de Veyon
+      file:
+        path: /etc/xdg/Veyon Solutions
+        state: directory
+
+    - name: Copia el fichero de configuración de Veyon cliente
+      copy:
+        src: client_config
+        dest: /etc/xdg/Veyon Solutions/Veyon.conf
+
+    - name: Crea el directorio para guardar la clave pública del profesor
+      file:
+        path: /etc/veyon/keys/public/teacher
+        state: directory
+
+    - name: Copia la clave pública del profesor
+      copy:
+        src: torvalds/keys/public.key
+        dest: /etc/veyon/keys/public/teacher/key
+
+    - name: Crea el directorio /etc/skel/.config
+      file:
+        path: /etc/skel/.config
+        state: directory
+
+    - name: Crea el directorio /etc/skel/.config/autostart
+      file:
+        path: /etc/skel/.config/autostart
+        state: directory
+
+    - name: Crea el fichero /etc/skel/.config/autostart/veyon.desktop para lanzar veyon-service al iniciar sesión
+      blockinfile:
+        dest: /etc/skel/.config/autostart/veyon.desktop
+        block: |
+          [Desktop Entry]
+          Type=Application
+          Exec=veyon-service
+          Hidden=false
+          X-GNOME-Autostart-enabled=true
+          Name=veyon-service
+          Comment=veyon-service
+
