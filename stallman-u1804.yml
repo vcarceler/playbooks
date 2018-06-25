@@ -1,5 +1,5 @@
 ---
-- hosts: stallman-u1804
+- hosts: stallman
   user: root
 
   handlers:

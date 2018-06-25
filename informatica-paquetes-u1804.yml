@@ -54,6 +54,7 @@
     - firefox
     - firefox-locale-ca
     - flashplugin-installer
+    # Los paquetes de gns3 han pasado a tener dependencias rotas
     - gns3-gui
     - gns3-server
     - libnss3

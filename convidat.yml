@@ -19,7 +19,7 @@
         [ -d /home/$guestuser ] && rm -rf /home/$guestuser
         # Se recrea el directorio
         mkdir /home/$guestuser
-        cp /etc/skel/.* /home/$guestuser
+        cp -r /etc/skel/.* /home/$guestuser
         mkdir /home/$guestuser/.config
         echo 'yes' > /home/$guestuser/.config/gnome-initial-setup-done
         chown -R $guestuser:$guestuser /home/$guestuser

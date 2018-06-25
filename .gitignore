@@ -2,3 +2,4 @@ users/*
 !users/prueba.yml
 packages/*
 *.retry
+*.key
