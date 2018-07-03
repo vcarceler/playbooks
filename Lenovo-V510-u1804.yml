@@ -65,7 +65,7 @@
     - include: gnome3-dconf.yml
 
     # Instalación general de paquetes para Informàtica (DPT y Aulas)
-    - include: informatica-paquetes-u1804.yml
+    #- include: informatica-paquetes-u1804.yml
 
 
     #
