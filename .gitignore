@@ -3,3 +3,4 @@ users/*
 packages/*
 *.retry
 *.key
+*.deb
