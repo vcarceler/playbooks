@@ -52,12 +52,11 @@
 - name: Actualiza a la última versión
   action: apt pkg={{ item }} state=latest update_cache=yes
   with_items:
-    - chromium-browser
-    - chromium-browser-l10n
+    #- chromium-browser
+    #- chromium-browser-l10n
     - firefox
     - firefox-locale-ca
     - flashplugin-installer
-    # Los paquetes de gns3 han pasado a tener dependencias rotas
     - gns3-gui
     - gns3-server
     - libnss3
