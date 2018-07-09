@@ -9,13 +9,12 @@
 - name: Añade respositorio de GNS3 (para instalar gns3-gui)
   action: apt_repository repo='ppa:gns3/ppa' state=present
 
-# Instalación de Atom y Visual Studio Code
-#- include: local-packages.yml
-
-# Desinstala Atom y Visual Studio Code
-#- name: Desinstala atom y vscode
-#  action: apt pkg={{ item }} state=absent
-#  with_items:
+# Desinstala paquetes que han sido substituidos por snaps
+- name: Desinstala paquetes que han sido substituidos por snaps
+  action: apt pkg={{ item }} state=absent
+  with_items:
+        - chromium-browser
+        - chromium-browser-l10n
 #    - atom
 #    - vscode
 
@@ -37,6 +36,10 @@
 - name: Instala snap darktable
   snap:
         name: darktable
+
+- name: Instala snap de Chromium
+  snap:
+        name: chromium
 
 
 # Instala Apache con el módulo userdir

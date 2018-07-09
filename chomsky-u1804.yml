@@ -1,6 +1,7 @@
 ---
 - hosts: chomsky
   user: root
+  connection: paramiko
 
   handlers:
     - name: restart sshd
@@ -66,25 +67,35 @@
     # Instalación general de paquetes para Informàtica (DPT y Aulas)
     - include: informatica-paquetes-u1804.yml
 
+      
+    #
+    # ATENCIÓN
+    #
+    # Intentar configurar LXD en los Lenovo con wifi deja a la máquina
+    # con una configuración que no arranca.
+    #
+    # En estos portátiles no se configura LXD
+    #
+
     # Configura LXD
-    - name: Instala bridge-utils y LXD
-      action: apt pkg={{ item }} state=present
-      with_items:
-        - bridge-utils
-        - lxd
+    #- name: Instala bridge-utils y LXD
+    #  action: apt pkg={{ item }} state=present
+    #  with_items:
+    #    - bridge-utils
+    #    - lxd
 
     # Comprueba que no esté configurado LXD para no destrozar /etc/network/interfaces
     # en la segunda ejecución, al ser la interfaz principal br0
-    - name: Comprueba si es necesario configurar el puente br0 en /etc/network/interfaces
-      lineinfile:
-        dest: /etc/network/interfaces
-        line: '# LXD configurado'
-      notify:
-        - configure br0
-        - configure lxd0
-        - configure lxd1
-        - configure lxd2
-        - configure lxd3
+    #- name: Comprueba si es necesario configurar el puente br0 en /etc/network/interfaces
+    #  lineinfile:
+    #    dest: /etc/network/interfaces
+    #    line: '# LXD configurado'
+    #  notify:
+    #    - configure br0
+    #    - configure lxd0
+    #    - configure lxd1
+    #    - configure lxd2
+    #    - configure lxd3
 
     # Usuarios
     #- include: users/informatica-u1804/prueba.yml
