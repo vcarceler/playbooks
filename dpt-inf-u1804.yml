@@ -1,5 +1,5 @@
 ---
-- hosts: dpt-inf-u1804
+- hosts: dpt-inf
   user: root
 
   handlers:
