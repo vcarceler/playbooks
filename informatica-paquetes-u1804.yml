@@ -41,6 +41,22 @@
   snap:
         name: chromium
 
+- name: Instala pdfmixtool
+  snap:
+        name: pdfmixtool
+
+- name: Instala sweethome3d-homedesign
+  snap:
+        name: sweethome3d-homedesign
+
+- name: Instala MuseScore (editor de partituras)
+  snap:
+        name: musescore
+
+        #- name: Instada node (Node.js)
+        #  snap:
+        #        name: node
+
 
 # Instala Apache con el módulo userdir
 - include: apache-userdir.yml
@@ -76,6 +92,7 @@
     - fritzing
     - gimp
     - gnome-boxes
+    - korganizer
     - krita
     - krita-l10n
     - kicad
@@ -83,6 +100,7 @@
     - libguestfs-tools
     - libwebkitgtk-1.0-0
     - libwebkitgtk-3.0-0
+    - libreoffice-base
     - lyx
     - texlive-lang-spanish
     - inkscape

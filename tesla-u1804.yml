@@ -1,6 +1,8 @@
 ---
 - hosts: tesla
   user: root
+  vars:
+    grupos: adm,cdrom,dialout,kvm,libvirt,lpadmin,lxd,plugdev,sambashare,ubridge,vboxusers
 
   handlers:
     - name: restart sshd
@@ -66,6 +68,12 @@
     # Instalación general de paquetes para Informàtica (DPT y Aulas)
     - include: informatica-paquetes-u1804.yml
 
+    # Solo para este aula
+    - name: Instala snap android-studio
+      snap:
+        name: android-studio
+        classic: yes
+
     # Configura LXD
     #- name: Instala bridge-utils y LXD
     #  action: apt pkg={{ item }} state=present
@@ -87,4 +95,12 @@
     #    - configure lxd3
 
     # Usuarios
-    #- include: users/informatica-u1804/prueba.yml
+    - include: users/dam2a.yml
+    - include: users/esobat/3a.yml
+    - include: users/esobat/3b.yml
+    - include: users/esobat/3c.yml
+    - include: users/esobat/3d.yml
+    - include: users/esobat/2inf-1.yml
+    - include: users/esobat/2inf-2.yml
+    - include: users/esobat/inf-fi.yml
+    - include: users/esobat/inf-fiii.yml

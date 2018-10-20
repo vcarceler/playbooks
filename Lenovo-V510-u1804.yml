@@ -2,6 +2,8 @@
 - hosts: lenovo-v510
   user: root
   connection: paramiko
+  vars:
+    grupos: adm,cdrom,dialout,lpadmin,plugdev,sambashare,vboxusers
 
   handlers:
     - name: restart sshd
@@ -98,4 +100,17 @@
     #    - configure lxd3
 
     # Usuarios
-    #- include: users/informatica-u1804/prueba.yml
+    - include: users/esobat/1a.yml
+    - include: users/esobat/1b.yml
+    - include: users/esobat/1c.yml
+    - include: users/esobat/1d.yml
+    - include: users/esobat/1e.yml
+    - include: users/esobat/2a.yml
+    - include: users/esobat/2b.yml
+    - include: users/esobat/2c.yml
+    - include: users/esobat/2d.yml
+    - include: users/esobat/2e.yml
+    - include: users/esobat/2f.yml
+    - include: users/esobat/tec-fi.yml
+    - include: users/esobat/tec-fii.yml
+    - include: users/esobat/tec-fiii.yml

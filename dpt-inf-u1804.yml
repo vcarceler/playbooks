@@ -36,6 +36,9 @@
     # Tareas por defecto
     - include: default.yml
 
+    # Ugrade
+    - include: upgrade.yml
+
     # Cambio de hostname
     - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dptinf
 

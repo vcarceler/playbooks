@@ -1,6 +1,8 @@
 ---
 - hosts: stallman
   user: root
+  vars:
+    grupos: adm,cdrom,dialout,kvm,libvirt,lpadmin,lxd,plugdev,sambashare,ubridge,vboxusers
 
   handlers:
     - name: restart sshd
@@ -87,4 +89,5 @@
         - configure lxd3
 
     # Usuarios
-    #- include: users/informatica-u1804/prueba.yml
+    - include: users/smx2b.yml
+    - include: users/asixdam1a.yml

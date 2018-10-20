@@ -2,6 +2,8 @@
 - hosts: chomsky
   user: root
   connection: paramiko
+  vars:
+    grupos: adm,cdrom,dialout,kvm,libvirt,lpadmin,plugdev,sambashare,ubridge,vboxusers
 
   handlers:
     - name: restart sshd
@@ -98,4 +100,6 @@
     #    - configure lxd3
 
     # Usuarios
-    #- include: users/informatica-u1804/prueba.yml
+    - include: users/afcat.yml
+    - include: users/afeng.yml
+    - include: users/idiomas.yml

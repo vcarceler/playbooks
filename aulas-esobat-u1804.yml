@@ -2,6 +2,8 @@
 - hosts: aulas-esobat
   user: root
   connection: paramiko
+  vars:
+    grupos: adm,cdrom,dialout,lpadmin,plugdev,sambashare,vboxusers
 
   handlers:
     - name: restart sshd
@@ -65,7 +67,7 @@
     - include: gnome3-dconf.yml
 
     # Instalación general de paquetes para Informàtica (DPT y Aulas)
-    #- include: informatica-paquetes-u1804.yml
+    - include: informatica-paquetes-u1804.yml
 
       
     #
@@ -98,4 +100,4 @@
     #    - configure lxd3
 
     # Usuarios
-    #- include: users/informatica-u1804/prueba.yml
+    - include: users/docent.yml
