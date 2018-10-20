@@ -1,0 +1,54 @@
+---
+- hosts: dpt-aif
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - include: /home/vcarceler/playbooks/default.yml
+
+    # Cambia el hostname
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dptaig
+
+    # Alta de usuarios (mkpasswd --method=sha-512)
+    - include: /home/vcarceler/playbooks/aif-users.yml
+    - include: default-users.yml
+
+    # Pongo el usuario admin
+    - include: /home/vcarceler/playbooks/add-admin-user.yml
+
+    # Instalación dpt-aif
+    - name: General | Instalación de paquetes
+      action: apt pkg={{ item }} state=installed
+      with_items:
+        - cryptsetup
+        - ekiga
+        - openshot
+        - blender
+        - shutter
+        - gnome-web-photo
+        - hugin
+        - audacity
+        - wine
+        - p7zip-rar
+        - libreoffice-l10n-es
+        - myspell-es
+        - aspell-es
+        - nautilus-image-converter
+        - vlc
+        - klavaro
+        - ktouch
+        - kazam
+        - winff
+        - gnome-system-tools
+        - normalize-audio
+        - id3v2
+        - qtgain
+        - gnome-subtitles
+        - soundconverter
+        - chromium-browser
+        - nautilus-dropbox
+        - virtualbox-ext-pack
+        - pdftk
+        - rst2pdf
+        - python-pypdf2
+        - python3-pypdf2

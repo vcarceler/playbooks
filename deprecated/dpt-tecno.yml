@@ -1,0 +1,23 @@
+---
+- hosts: dpt-tecno
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - include: /home/vcarceler/playbooks/default.yml
+
+    # Cambia el hostname
+    # DESACTIVADO PORQUE ESTÁN EN LA VLAN ESO-BATX
+    #- include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dpttecno
+
+    # Operaciones generales de informática
+    - include: /home/vcarceler/playbooks/informatica.yml
+
+    # Alta de usuarios
+    - include: users/tecno/acanal8.yml
+    - include: users/tecno/gemma.yml
+    - include: users/tecno/ione.yml
+    - include: users/tecno/jmorcillo.yml
+    - include: users/tecno/lauraporrino.yml
+    - include: users/tecno/oriolsune.yml
+

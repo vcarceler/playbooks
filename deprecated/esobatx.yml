@@ -1,0 +1,51 @@
+---
+- hosts: esobatx
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - include: /home/vcarceler/playbooks/default.yml
+
+    # Cambia el hostname
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=esobatx
+
+    # Alta de usuarios (mkpasswd --method=sha-512)
+    - include: /home/vcarceler/playbooks/default-users.yml
+
+    # Operaciones generales de informática
+    - include: /home/vcarceler/playbooks/informatica.yml
+
+    # Operaciones específicas de las aulas de informática
+    - include: aulas-informatica.yml
+
+    # Usuarios ESO
+    - include: users/franja1.yml
+    - include: users/franja2.yml
+    - include: users/franja3.yml
+    - include: users/1a.yml
+    - include: users/1b.yml
+    - include: users/1c.yml
+    - include: users/1d.yml
+    - include: users/1e.yml
+    - include: users/1f.yml
+    - include: users/2a.yml
+    - include: users/2b.yml
+    - include: users/2c.yml
+    - include: users/2d.yml
+    - include: users/2e.yml
+
+
+    # Instalación de paquetes
+    - name: General | Instalación de paquetes
+      action: apt pkg={{ item }} state=installed
+      with_items:
+        - arduino
+        - gimp
+        - librecad
+        - freecad
+        - fritzing
+        - wine
+        - shutter
+        - kicad
+        - kicad-doc-es
+        - flashplugin-installer

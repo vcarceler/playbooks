@@ -1,0 +1,22 @@
+---
+- hosts: j1900
+  user: root
+
+  handlers:
+    - name: Update grub
+      command: update-grub
+
+    - name: Reinicia
+      command: init 6
+
+  tasks:
+    # Los ordenadores con J1900 se bloquean de forma aleatoria si no tienen este parámetro en el núcleo.
+    - name: Añade intel_idle.max_cstate=1 a los parámetros del núcleo (evitar bloqueos)
+      replace:
+        dest: /etc/default/grub
+        regexp: '^GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"'
+        replace: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_idle.max_cstate=1"'
+      notify:
+        - Update grub
+        - Reinicia
+

@@ -1,0 +1,6 @@
+---
+- hosts: 192.168.17.35
+  user: root
+
+  tasks:
+          - include: users/lengua/pau.yml

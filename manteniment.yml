@@ -1,0 +1,7 @@
+---
+- hosts: manteniment
+  user: root
+
+  tasks:
+    # Tareas por defecto
+    - include: users/informatica-u1804/manteniment.yml
