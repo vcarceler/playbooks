@@ -53,9 +53,12 @@
   snap:
         name: musescore
 
-        #- name: Instada node (Node.js)
-        #  snap:
-        #        name: node
+- name: Instala shotcut (editor de vídeo)
+  snap:
+        name: shotcut
+        classic: yes
+
+
 
 
 # Instala Apache con el módulo userdir
@@ -104,6 +107,7 @@
     - lyx
     - texlive-lang-spanish
     - inkscape
+    - inkscape-open-symbols
     - ipcalc
     - librecad
     - default-jdk
