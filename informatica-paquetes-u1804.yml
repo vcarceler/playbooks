@@ -81,6 +81,12 @@
     - libnss3
     - net-tools
     - vim
+  ignore_errors: True
+  register: result
+
+- name: Si es necesario ejecuta 'dpkg --configure -a'
+  shell: dpkg --configure -a
+  when: result is failed
 
 # Instalación de paquetes
 - name: Instalación de paquetes
