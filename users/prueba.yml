@@ -1,6 +1,0 @@
----
-# Alta de usuarios (mkpasswd --method=sha-512)
-# grupo lxd,libvirtd,wireshark,gdm,ubridge
-# Ubuntu 18.04
-- name: Usuario prueba (7841)
-  action: user name=prueba groups=ubridge,gdm,lxd,dialout,vboxusers,libvirt append=yes shell=/bin/bash password=$6$a911FJA2MJ$TNDIB281e0PMgyDRElEnayEiYfI0C/qa9AKuA31oRRksFqjSjt7yu2jL/osrkLl7NQtVQOwApnSptQFC99evG1

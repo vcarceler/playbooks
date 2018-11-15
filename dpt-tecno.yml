@@ -66,6 +66,9 @@
     # Instalación general de paquetes para Informàtica (DPT y Aulas)
     - include: informatica-paquetes-u1804.yml
 
+    # Upgrade
+    - include: upgrade.yml
+
     # Configura LXD
     - name: Instala bridge-utils y LXD
       action: apt pkg={{ item }} state=present

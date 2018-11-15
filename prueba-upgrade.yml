@@ -1,5 +1,5 @@
 ---
-- hosts: 192.168.16.105
+- hosts: 192.168.240.202 
   user: root
 
   tasks:

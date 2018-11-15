@@ -151,4 +151,5 @@
     # KVM
     - qemu-kvm
     - libvirt-bin
+    - xorriso
     - virt-manager

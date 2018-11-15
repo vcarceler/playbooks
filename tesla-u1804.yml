@@ -74,6 +74,11 @@
         name: android-studio
         classic: yes
 
+    - name: Instala snap dotnet-sdk
+      snap:
+        name: dotnet-sdk
+        classic: yes
+
     # Configura LXD
     #- name: Instala bridge-utils y LXD
     #  action: apt pkg={{ item }} state=present

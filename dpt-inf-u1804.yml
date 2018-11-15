@@ -36,9 +36,6 @@
     # Tareas por defecto
     - include: default.yml
 
-    # Ugrade
-    - include: upgrade.yml
-
     # Cambio de hostname
     - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dptinf
 
@@ -65,6 +62,9 @@
 
     # Instalación general de paquetes para Informàtica (DPT y Aulas)
     - include: informatica-paquetes-u1804.yml
+
+    # Upgrade
+    #- include: upgrade.yml
 
     # Configura LXD
     - name: Instala bridge-utils y LXD
