@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#
+# Tareas periódicas en los portátiles de Tecno
+#
+
+playbooks="/home/vcarceler/playbooks"
+
+source <(python -m ara.setup.env)
+
+ansible-playbook -i $playbooks/hosts $playbooks/Lenovo-V510-u1804.yml

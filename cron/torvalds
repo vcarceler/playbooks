@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#
+# Tareas periódicas en el Aula Torvalds
+#
+
+ansible-playbook /home/vcarceler/playbooks/torvalds-u1804.yml

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+NETWORKS="torvalds stallman ada aif snowden esobatx departaments turing darwin tesla chomsky berners-lee"
+
+for net in $NETWORKS
+do
+	tmpfile=$(mktemp /tmp/glaza-data.tmp.XXXXXX)
+
+	ansible $net -m setup -u root -i /home/vcarceler/playbooks/hosts >$tmpfile
+
+	curl -X POST --data-binary "@$tmpfile" http://192.168.0.112:8000/rest/
+
+	rm "$tmpfile"
+done

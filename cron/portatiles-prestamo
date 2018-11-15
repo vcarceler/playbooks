@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#
+# Tareas periódicas en los 5 portátiles de prestamo HP 250G
+#
+
+playbooks="/home/vcarceler/playbooks"
+
+source <(python -m ara.setup.env)
+
+ansible-playbook -i $playbooks/hosts $playbooks/portatiles-prestamo.yml

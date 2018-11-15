@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#
+# Tareas periódicas en el carret10
+#
+
+playbooks="/home/vcarceler/playbooks"
+
+source <(python -m ara.setup.env)
+
+ansible-playbook -i $playbooks/hosts $playbooks/carret10-u1804.yml

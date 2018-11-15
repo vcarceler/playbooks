@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#
+# Tareas periódicas en el Aula Snowden
+#
+
+playbooks="/home/vcarceler/playbooks"
+
+source <(python -m ara.setup.env)
+
+ansible-playbook -i $playbooks/hosts $playbooks/snowden-u1804.yml
