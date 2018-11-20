@@ -67,7 +67,7 @@
     - include: informatica-paquetes-u1804.yml
 
     # Upgrade
-    - include: upgrade.yml
+    #- include: upgrade.yml
 
     # Configura LXD
     - name: Instala bridge-utils y LXD
