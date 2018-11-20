@@ -86,7 +86,7 @@
 
 [esobatx]
 192.168.16.[100:105]
-192.168.16.[111:113]
+192.168.16.[111:114]
 
 [departaments]
 192.168.17.[20:22]
@@ -150,6 +150,7 @@ Lenovo-V510
 192.168.16.116
 # Departamento de física y química
 192.168.16.108
+192.168.16.114
 # Aula 7 (2A)
 192.168.240.176
 # 2B
@@ -246,6 +247,8 @@ dpt-inf
 192.168.16.[101:104]
 # Aula 15bis, antiguo departamento de filosofia
 192.168.17.32
+# Departamento de fisica y quimica
+192.168.16.114
 
 # Portátiles HP 250 G4 negros
 # Laboratorio de ciencias

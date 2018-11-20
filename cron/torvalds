@@ -4,4 +4,8 @@
 # Tareas periódicas en el Aula Torvalds
 #
 
-ansible-playbook /home/vcarceler/playbooks/torvalds-u1804.yml
+playbooks="/home/vcarceler/playbooks"
+
+source <(python -m ara.setup.env)
+
+ansible-playbook -i $playbooks/hosts $playbooks/torvalds-u1804.yml
