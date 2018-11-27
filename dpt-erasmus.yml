@@ -69,7 +69,7 @@
     # Usuarios
     - include: users/mundus.yml
     - include: users/aig/alancho.yml
-    - include: users/informatica-u1804/ttejero.yml
+    - include: users/informatica-u1804/rarroyo2.yml
 
     # Gnome3 dconf
     - include: gnome3-dconf.yml

@@ -12,3 +12,9 @@
   action: user name=manteniment state=absent remove=yes
 - name: Borrado del usuario dhcp
   action: user name=dhcp state=absent remove=yes
+
+- name: Borrado del usuario ttejero
+  action: user name=ttejero state=absent remove=yes
+- name: Borrado del usuario crismaestra
+  action: user name=crismaestra state=absent remove=yes
+
