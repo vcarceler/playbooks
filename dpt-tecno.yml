@@ -39,8 +39,8 @@
     - include: default.yml
 
     # Cambio de hostname
-    # desactivador porque estan en la vlan de esobat
-    #- include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dpting
+    # desactivado porque estan en la vlan de esobat
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dpttecno
 
     # Cambio en la configuración de sshd para bloquear la autenticación con password
     - name: Bloquea la autenticación con password en /etc/ssh/sshd_config

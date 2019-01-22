@@ -3,7 +3,7 @@
   user: root
 
   vars:
-    grupos: adm,cdrom,dialout,kvm,libvirt,lpadmin,plugdev
+    grupos: adm,cdrom,dialout,lpadmin,plugdev
 
   handlers:
     - name: restart sshd

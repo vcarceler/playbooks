@@ -6,7 +6,7 @@
     state: present
     system: yes
 
-- name: Instala Apache y PHP
+- name: Instala Wireshark
   action: apt pkg={{ item }} state=installed
   with_items:
     - wireshark

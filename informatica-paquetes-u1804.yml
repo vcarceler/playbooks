@@ -15,6 +15,8 @@
   with_items:
         - chromium-browser
         - chromium-browser-l10n
+        - arduino
+        - arduino-core
 #    - atom
 #    - vscode
 
@@ -58,14 +60,16 @@
         name: shotcut
         classic: yes
 
-
+- name: Instala pdftk
+  snap:
+        name: pdftk
 
 
 # Instala Apache con el módulo userdir
 - include: apache-userdir.yml
 
 # Instala wireshark
-#- include: wireshark.yml
+- include: wireshark.yml
 
 # Actualiza a la última versión
 - name: Actualiza a la última versión
@@ -92,7 +96,7 @@
 - name: Instalación de paquetes
   action: apt pkg={{ item }} state=present
   with_items:
-    - arduino
+          #- arduino
     - audacity
     - blender
     - bluefish
@@ -101,6 +105,7 @@
     - fritzing
     - gimp
     - gnome-boxes
+    - golang-go
     - korganizer
     - krita
     - krita-l10n

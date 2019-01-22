@@ -266,6 +266,9 @@ dpt-inf
 #192.168.19.178
 #192.168.19.124
 
+[secretaria]
+192.168.240.205
+
 [biblioteca]
 192.168.17.[35:41]
 
@@ -276,6 +279,7 @@ dpt-inf
 192.168.14.[100:107]
 192.168.14.[114:128]
 192.168.17.32
+192.168.240.160
 
 # Grupo para crear el usuario manteniment
 [manteniment]

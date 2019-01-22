@@ -18,3 +18,5 @@
 - name: Borrado del usuario crismaestra
   action: user name=crismaestra state=absent remove=yes
 
+#- name: Borrado del usuario squid
+  #action: user name=squid state=absent remove=yes
