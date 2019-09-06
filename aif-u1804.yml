@@ -68,6 +68,12 @@
     # Instalación general de paquetes para Informàtica (DPT y Aulas)
     - include: informatica-paquetes-u1804.yml
 
+    # Instalación de Wine
+    - name: Instala wine-stable
+      action: apt pkg={{ item }} state=present
+      with_items:
+        - wine-stable
+
     # Configura LXD
     - name: Instala bridge-utils y LXD
       action: apt pkg={{ item }} state=present

@@ -87,6 +87,8 @@
 [esobatx]
 192.168.16.[100:105]
 192.168.16.[111:114]
+# Aula 202
+192.168.17.52
 
 [departaments]
 192.168.17.[20:22]
@@ -99,6 +101,8 @@
 
 [darwin]
 192.168.19.[100:122]
+# Lenovo en pruebas
+192.168.19.123
 
 [xeill]
 #10.0.[0:254].[101:254]
@@ -178,13 +182,29 @@ Lenovo-V510
 192.168.14.100
 192.168.14.150
 
+[dpt-cast]
+192.168.17.46
+
 [dpt-cat]
 192.168.17.20
 192.168.17.21
 
+[dpt-ciencies]
+192.168.240.189
+
+[dpt-dibuix]
+192.168.17.47
+192.168.17.48
+
+[dpt-edufis]
+192.168.17.51
+
 [dpt-erasmus]
 192.168.240.159
 192.168.240.160
+
+[dpt-historia]
+192.168.240.245
 
 # Listados desde la puerta hacia la ventana
 [dpt-inf]
@@ -200,6 +220,9 @@ Lenovo-V510
 
 [dpt-musica]
 192.168.240.178
+
+[dpt-religio]
+192.168.240.246
 
 [dpt-tecno]
 # Profesor taller de tecno
@@ -242,6 +265,10 @@ dpt-inf
 [carret10]
 192.168.240.[125:159]
 
+# Portátiles HP 250 G6 Plateados 256 GB SSD y pantalla FullHD
+[carret11]
+192.168.240.[210:242]
+
 # Aulas ESO/BAT con WiFi y cable
 [aulas-esobat]
 192.168.240.[170:188]
@@ -250,6 +277,10 @@ dpt-inf
 192.168.17.32
 # Departamento de fisica y quimica
 192.168.16.114
+# Aula de acollida
+192.168.240.243
+# Aula de dibuix
+192.168.17.47
 
 # Portátiles HP 250 G4 negros
 # Laboratorio de ciencias
@@ -271,6 +302,9 @@ dpt-inf
 
 [biblioteca]
 192.168.17.[35:41]
+
+[consergeria]
+192.168.17.50
 
 # Ordenadores de AIF con J1900
 # necesitan un parámetro en el núcleo

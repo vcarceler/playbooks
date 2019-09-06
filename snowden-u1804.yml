@@ -2,7 +2,7 @@
 - hosts: snowden
   user: root
   vars:
-    grupos: adm,cdrom,dialout,kvm,libvirt,lpadmin,lxd,plugdev,sambashare,ubridge,vboxusers,wireshark
+    grupos: adm,cdrom,dialout,kvm,libvirt,lpadmin,lxd,plugdev,sambashare,ubridge,vboxusers,wireshark,fuse
 
   handlers:
     - name: restart sshd
@@ -87,6 +87,13 @@
         - configure lxd1
         - configure lxd2
         - configure lxd3
+
+    # Grupo fuse
+    #
+    - name: Crea el grupo fuse para utilizarlo con libguestfs-tools
+      group:
+        name: fuse
+        state: present
 
     # Usuarios
     - include: users/smx1c.yml

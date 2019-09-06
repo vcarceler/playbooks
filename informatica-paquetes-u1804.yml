@@ -17,6 +17,8 @@
         - chromium-browser-l10n
         - arduino
         - arduino-core
+        - krita
+        - krita-l10n
 #    - atom
 #    - vscode
 
@@ -25,9 +27,16 @@
         name: atom
         classic: yes
 
-- name: Instala snap vscode
+# Desinstala la versión de snapcrafters e instala la oficial
+- name: Desinsstala snap vscode de snapcrafters
   snap:
         name: vscode
+        classic: yes
+        state: absent
+
+- name: Instala snap vscode
+  snap:
+        name: code
         classic: yes
 
 - name: Instala snap brackets
@@ -42,6 +51,18 @@
 - name: Instala snap de Chromium
   snap:
         name: chromium
+
+- name: Instala snap de krita
+  snap:
+        name: krita
+
+- name: Instala snap de ktouch
+  snap:
+        name: ktouch
+
+- name: Instala snap de libreoffice
+  snap:
+        name: libreoffice
 
 - name: Instala pdfmixtool
   snap:
@@ -107,14 +128,15 @@
     - gnome-boxes
     - golang-go
     - korganizer
-    - krita
-    - krita-l10n
+      #- krita
+      #- krita-l10n
     - kicad
     - kicad-doc-es
     - libguestfs-tools
     - libwebkitgtk-1.0-0
     - libwebkitgtk-3.0-0
     - libreoffice-base
+    - libreoffice-report-builder
     - lyx
     - texlive-lang-spanish
     - inkscape
@@ -134,6 +156,7 @@
     - relational
     - scratch
     - shutter
+    - ttf-mscorefonts-installer
     - virt-top
     - pgadmin3
     - dialog
@@ -164,3 +187,11 @@
     - libvirt-bin
     - xorriso
     - virt-manager
+
+# Activa la virtualización anidada para KVM
+- name: Activa la virtualización anidada para KVM
+  lineinfile:
+          path: /etc/modprobe.d/kvm.conf
+          create: yes
+          state: present
+          line: 'options kvm_intel nested=1'

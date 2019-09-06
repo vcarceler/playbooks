@@ -15,6 +15,9 @@ function log () {
         logger -t $SCRIPT $1
 }
 
+# We need to wait for lxd containers
+sleep 60
+
 log "There is something to do?"
 
 DISK_USAGE=`df -h | grep -E \/$ | sed "s/  */ /g" | cut -f5 -d' ' | cut -f1 -d'%'`
@@ -55,6 +58,23 @@ then
 	apt-get clean
 
 	log "Final disk usage: $DISK_USAGE%"
+fi
+
+#
+# Checks for LXD RUNNING containers to stop
+#
+LXC="/usr/bin/lxc"
+if [ -f $LXC ]
+then
+	log "There are LXD running containers?"
+
+	for container in `$LXC list -c n,s --format csv | grep RUNNING | cut -f1 -d','`
+	do
+		# Stop container
+		log "Stop container $container"
+		$LXC stop $container && log "stopped $container"
+	done
+
 fi
 
 log "There is nothing to do."

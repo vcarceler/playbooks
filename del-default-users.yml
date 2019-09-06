@@ -13,10 +13,11 @@
 - name: Borrado del usuario dhcp
   action: user name=dhcp state=absent remove=yes
 
-- name: Borrado del usuario ttejero
-  action: user name=ttejero state=absent remove=yes
-- name: Borrado del usuario crismaestra
-  action: user name=crismaestra state=absent remove=yes
+- name: Borrado del usuario squid
+  action: user name=squid state=absent remove=yes
 
-#- name: Borrado del usuario squid
-  #action: user name=squid state=absent remove=yes
+- name: Borrado del usuario uf3
+  action: user name=uf3 state=absent remove=yes
+
+- name: Borrado del usuario blender
+  action: user name=blender state=absent remove=yes
