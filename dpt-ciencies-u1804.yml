@@ -1,0 +1,88 @@
+---
+- hosts: dpt-ciencies
+  user: root
+
+  handlers:
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
+
+    - name: configure br0
+      blockinfile:
+        dest: /etc/network/interfaces
+        block: |
+          # Puente br0 para lxd y kvm
+          auto {{ ansible_default_ipv4.interface }}
+          iface {{ ansible_default_ipv4.interface }} inet manual
+
+          auto br0
+          iface br0 inet dhcp
+            bridge_ports {{ ansible_default_ipv4.interface }}
+
+    - name: configure lxd0
+      command: systemctl restart networking
+    - name: configure lxd1
+      command: lxc storage create pool dir
+    - name: configure lxd2
+      command: lxc profile device add default root disk path=/ pool=pool
+    - name: configure lxd3
+      command: lxc network attach-profile br0 default
+
+    - name: dconf update
+      command: dconf update
+
+  tasks:
+    # Tareas por defecto
+    - include: default.yml
+
+    # Cambio de hostname
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dptciencies
+
+    # Cambio en la configuración de sshd para bloquear la autenticación con password
+    - name: Bloquea la autenticación con password en /etc/ssh/sshd_config
+      replace:
+        dest: /etc/ssh/sshd_config
+        regexp: '^#PasswordAuthentication yes'
+        replace: 'PasswordAuthentication no'
+      notify:
+        - restart sshd
+
+    # Tareas generales de informática (DPT y Aulas)
+    #
+
+    # Borrado de usuarios por defecto (mati y tarda)
+    - include: del-default-users.yml
+
+    # Usuario invitado
+    - include: convidat.yml
+
+    # Gnome3 dconf
+    - include: gnome3-dconf.yml
+
+    # Instalación general de paquetes para Informàtica (DPT y Aulas)
+    - include: informatica-paquetes-u1804.yml
+
+    # Configura LXD
+    - name: Instala bridge-utils y LXD
+      action: apt pkg={{ item }} state=present
+      with_items:
+        - bridge-utils
+        - lxd
+
+    # Comprueba que no esté configurado LXD para no destrozar /etc/network/interfaces
+    # en la segunda ejecución, al ser la interfaz principal br0
+    - name: Comprueba si es necesario configurar el puente br0 en /etc/network/interfaces
+      lineinfile:
+        dest: /etc/network/interfaces
+        line: '# LXD configurado'
+      notify:
+        - configure br0
+        - configure lxd0
+        - configure lxd1
+        - configure lxd2
+        - configure lxd3
+
+    # Usuarios
+    - include: users/ciencies/ciencies.yml
+      #- include: users/informatica-u1804/manteniment.yml

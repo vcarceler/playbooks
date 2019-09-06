@@ -1,0 +1,77 @@
+---
+- hosts: profesinf
+  user: root
+
+  tasks:
+    - include: users/gerard.yml
+
+    - include: users/david.yml
+
+    - include: users/jmanel.yml
+
+    - include: users/q2dg.yml
+
+    - include: users/rarroyo2.yml
+
+    - include: users/jordifarrero.yml
+
+    - include: users/porrinofernando.yml
+
+    # Definición de los usuarios de los profesores
+    - name: Usuario vcarceler
+      action: user name=vcarceler groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$hfTAnFBU$D5wpxs2sH4mq7DhsqL..e3mv4HC7Egaq9QTmv4G.uJcrBcPvdLPTGZFbSras6z12m8XutuihE19wLfuLYT6O01
+
+    - name: Usuario jmonserrat
+      action: user name=jmonserrat groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$WQ8jbXMc3Ufd8$JmA8PTcWc9h3Hm7uOffA.GgtjiEcFNw95L/4v2dKUowXuSTVLg2hTtG.NnLT7r.DwRTNgTlsmKKq.pihzRA46.
+
+    - name: Usuario jherna76
+      action: user name=jherna76 groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$LY/bqJWg52hGziik$.VnosMVV5pDjxVcxDia6KEwoOzVgGaxKLcG5/IkS./xl6PKcy7BYP9iGAazY2LUm.N3V4GU1oOV2j.78dGmaB1
+
+    - name: Usuario mperram4
+      action: user name=mperram4 groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$BjM5MPKwKxifvrGy$/o7ubLn2eQyg7xS4vPsGarBdr6SxnuLRAlm/YIe7tZ2D.XvE/oKBK.0vBSWazlws/S1cARqXs3gKLZ7HpLuYX.
+
+    - name: Usuario ttejero
+      action: user name=ttejero groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$EbN1RnbS$M4tQSNPfyjzuVw7hr4QnEecyfpyt3HXZ2l.vBg4y3oYNZ.wDWImCh5OqyrtNkxup54q2V/N1Fw9PRv5DSG3m70
+
+    - name: Usuario daniel.martinez
+      action: user name=daniel.martinez groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$i3.26JC8.KltCn$nSyunsY7fJltKC7fuZ1AyyAfpKprubFzx5yYTyCMXXwoGhfjUAZfMaiU9FQ.DYKLgs/hsLltKKDo9rmGaV2fB1
+
+    - name: Usuario slopez
+      action: user name=slopez groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$zgkNk4uJzpy$ZShls9UcGW1sEmfgjmfUZV9nGGrGj8Kir6tvs6KiB4CMIbcHAnGYbt12y0mbPP/I69b5Ge5AxD1zmSKkRsBCC/
+
+    - name: Usuario amacias
+      action: user name=amacias groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$g3yPPHNKmnz$u7JD2wkHnCYWjViILoKVel0DffY/XsUQAFUI/U/ktjgiJnBO.0f70dYOUD.tZEmIHT6Ho8KewklmBlEvWD70h/
+
+    - name: Usuario smart52
+      action: user name=smart52 groups=dialout,wireshark,lxd,libvirtd,vboxusers append=yes password=$6$wsxngXHjC$tBfC8So084N2EpuOsnyEDDxeUga9nAhE..vbkfZ8SzV2fA3TlY1GkctAn3vyAZMlVjZWi5PGXcJ.canzp7IBd.
+
+    # Borrado de usuarios
+    - name: Borrado del usuario adria
+      action: user name=adria state=absent remove=yes
+
+    - name: Borrado del usuario rborrell
+      action: user name=rborrell state=absent remove=yes
+
+    - name: Borrado del usuario joan
+      action: user name=joan state=absent remove=yes
+
+    - name: Borrado del usuario tarek
+      action: user name=tarek state=absent remove=yes
+
+    - name: Borrado del usuario cristofol
+      action: user name=cristofol state=absent remove=yes
+
+    - name: Borrado del usuario isaac
+      action: user name=isaac state=absent remove=yes
+
+    - name: Borrado del usuario ione
+      action: user name=ione state=absent remove=yes
+
+    - name: Borrado del usuario salarnal
+      action: user name=salarnal state=absent remove=yes
+
+    - name: Borrado del usuario 1a
+      action: user name=1a state=absent remove=yes
+
+    - name: Borrado del usuario josep.masallera
+      action: user name=josep.masallera state=absent remove=yes
