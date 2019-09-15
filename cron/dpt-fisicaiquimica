@@ -8,4 +8,4 @@ playbooks="/home/vcarceler/playbooks"
 
 source <(python -m ara.setup.env)
 
-ansible-playbook -i $playbooks/hosts $playbooks/fisicaiquimica-users.yml
+ansible-playbook -i $playbooks/hosts $playbooks/dpt-fisicaiquimica-u1804.yml

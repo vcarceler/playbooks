@@ -101,8 +101,6 @@
 
 [darwin]
 192.168.19.[100:122]
-# Lenovo en pruebas
-192.168.19.123
 
 [xeill]
 #10.0.[0:254].[101:254]
@@ -141,7 +139,7 @@ Lenovo-V510
 192.168.16.105
 
 # Ordenadores de física y química
-[fisicaiquimica]
+[dpt-fisicaiquimica]
 # 101
 192.168.16.132
 # 102
@@ -149,7 +147,9 @@ Lenovo-V510
 # 202
 192.168.240.184
 # Lab física y química
-192.168.16.142
+192.168.16.106
+192.168.16.107
+192.168.16.108
 # 2D
 192.168.16.116
 # Departamento de física y química
@@ -281,6 +281,8 @@ dpt-inf
 192.168.240.243
 # Aula de dibuix
 192.168.17.47
+# Aula 202
+192.168.17.52
 
 # Portátiles HP 250 G4 negros
 # Laboratorio de ciencias

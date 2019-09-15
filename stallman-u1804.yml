@@ -89,5 +89,7 @@
         - configure lxd3
 
     # Usuarios
+    - include: users/smx1c.yml
     - include: users/smx2b.yml
-    - include: users/asixdam1a.yml
+    - name: Borrado del usuario asixdam1a
+      action: user name=asixdam1a state=absent remove=yes

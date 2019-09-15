@@ -90,4 +90,6 @@
 
     # Usuarios
     - include: users/smx2a.yml
-    - include: users/asixdam1b.yml
+    - include: users/smx2c.yml
+    - name: Borrado del usuario asixdam1b
+      action: user name=asixdam1b state=absent remove=yes

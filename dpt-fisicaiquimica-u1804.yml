@@ -1,9 +1,6 @@
 ---
-- hosts: turing
+- hosts: dpt-fisicaiquimica
   user: root
-  vars:
-    grupos: adm,cdrom,dialout,kvm,libvirt,lpadmin,lxd,plugdev,sambashare,ubridge,vboxusers
-
 
   handlers:
     - name: restart sshd
@@ -40,7 +37,7 @@
     - include: default.yml
 
     # Cambio de hostname
-    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=turing
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dptfisicaiquimica
 
     # Cambio en la configuración de sshd para bloquear la autenticación con password
     - name: Bloquea la autenticación con password en /etc/ssh/sshd_config
@@ -51,9 +48,6 @@
       notify:
         - restart sshd
 
-    # Tareas particulares de las aulas de informática
-    - include: apagado-1455.yml
-    
     # Tareas generales de informática (DPT y Aulas)
     #
 
@@ -90,7 +84,5 @@
         - configure lxd3
 
     # Usuarios
-    - include: users/smx1b.yml
-    - include: users/asixdam1a.yml
-    - name: Borrado del usuario smx2c
-      action: user name=smx2c state=absent remove=yes
+    - include: users/fisicaiquimica/fisicaiquimica.yml
+      #- include: users/informatica-u1804/manteniment.yml

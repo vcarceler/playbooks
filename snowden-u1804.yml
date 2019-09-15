@@ -96,8 +96,11 @@
         state: present
 
     # Usuarios
-    - include: users/smx1c.yml
-    - include: users/asix2.yml
-    - include: users/esobat/ofi-fi.yml
-    - include: users/esobat/ofi-fii.yml
-    - include: users/esobat/ofi-fiii.yml
+    - include: users/asixdam1b.yml
+    - name: Borrado del usuario smx1c
+      action: user name=smx1c state=absent remove=yes
+    - name: Borrado del usuario asix2
+      action: user name=asix2 state=absent remove=yes
+    #- include: users/esobat/ofi-fi.yml
+    #- include: users/esobat/ofi-fii.yml
+    #- include: users/esobat/ofi-fiii.yml

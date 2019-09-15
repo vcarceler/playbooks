@@ -87,4 +87,7 @@
         - configure lxd3
 
     # Usuarios
-    #- include: users/informatica-u1804/prueba.yml
+    - include: users/smx1a.yml
+    - include: users/smx1b.yml
+    - include: users/smx1c.yml
+    - include: users/asixdam1a.yml
