@@ -90,3 +90,6 @@
 
     # Usuarios
     - include: users/consergeria.yml
+
+    # Actualiza el SO
+    - include: upgrade.yml

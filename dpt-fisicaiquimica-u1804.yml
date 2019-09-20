@@ -86,3 +86,6 @@
     # Usuarios
     - include: users/fisicaiquimica/fisicaiquimica.yml
       #- include: users/informatica-u1804/manteniment.yml
+
+    # Actualiza el SO
+    - include: upgrade.yml

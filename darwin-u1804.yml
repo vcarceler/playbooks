@@ -91,3 +91,6 @@
     - include: users/smx1b.yml
     - include: users/smx1c.yml
     - include: users/asixdam1a.yml
+
+    # Actualiza el SO
+    - include: upgrade.yml

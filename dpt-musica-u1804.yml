@@ -99,3 +99,6 @@
 
     # Usuarios
     - include: users/musica/musica.yml
+
+    # Actualiza el SO
+    - include: upgrade.yml

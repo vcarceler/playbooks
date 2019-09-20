@@ -91,3 +91,6 @@
     # Usuarios
     - include: users/dam2b.yml
     - include: users/docent.yml
+
+    # Actualiza el SO
+    - include: upgrade.yml

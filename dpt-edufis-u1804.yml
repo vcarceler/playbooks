@@ -86,3 +86,6 @@
     # Usuarios
     - include: users/edufis/edufis.yml
       #- include: users/informatica-u1804/manteniment.yml
+
+    # Actualiza el SO
+    - include: upgrade.yml

@@ -87,3 +87,6 @@
 
     # Usuarios
     - include: users/aig/ga.yml
+
+    # Actualiza el SO
+    - include: upgrade.yml

@@ -104,3 +104,7 @@
     #- include: users/esobat/ofi-fi.yml
     #- include: users/esobat/ofi-fii.yml
     #- include: users/esobat/ofi-fiii.yml
+    #
+
+    # Actualiza el SO
+    - include: upgrade.yml

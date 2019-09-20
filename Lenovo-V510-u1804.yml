@@ -114,3 +114,6 @@
     - include: users/esobat/tec-fi.yml
     - include: users/esobat/tec-fii.yml
     - include: users/esobat/tec-fiii.yml
+
+    # Actualiza el SO
+    - include: upgrade.yml

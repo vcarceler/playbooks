@@ -51,3 +51,6 @@
     - include: users/afcat.yml
     - include: users/afeng.yml
     - include: users/docent.yml
+
+    # Actualiza el SO
+    - include: upgrade.yml

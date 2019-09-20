@@ -91,3 +91,6 @@
 
     # Usuarios
     #- include: users/informatica-u1804/prueba.yml
+
+    # Actualiza el SO
+    - include: upgrade.yml
