@@ -1,0 +1,13 @@
+---
+- hosts: aif
+  user: root
+
+  tasks:
+    - name: Borrado de usuarios antiguos
+      user:
+              name: "{{ item }}"
+              state: absent
+              remove: yes
+      with_items:
+              - afcat
+              - afeng

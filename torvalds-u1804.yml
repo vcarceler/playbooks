@@ -93,3 +93,7 @@
     - include: users/smx2c.yml
     - name: Borrado del usuario asixdam1b
       action: user name=asixdam1b state=absent remove=yes
+
+    # Actualiza el SO
+    - include: upgrade.yml
+

@@ -2,4 +2,4 @@
 - name: Actualiza el SO (aptitude full-upgrade)
   apt:
     update-cache: yes
-    upgrade: full
+    upgrade: yes
