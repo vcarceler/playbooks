@@ -115,5 +115,31 @@
     - include: users/esobat/tec-fii.yml
     - include: users/esobat/tec-fiii.yml
 
+    - include: users/esobat/grupos/tec1a-g1.yml
+    - include: users/esobat/grupos/tec1a-g2.yml
+    - include: users/esobat/grupos/tec1b-g1.yml
+    - include: users/esobat/grupos/tec1b-g2.yml
+    - include: users/esobat/grupos/tec1c-g1.yml
+    - include: users/esobat/grupos/tec1c-g2.yml
+    - include: users/esobat/grupos/tec1d-g1.yml
+    - include: users/esobat/grupos/tec1d-g2.yml
+    - include: users/esobat/grupos/tec1e-g1.yml
+    - include: users/esobat/grupos/tec1e-g2.yml
+    - include: users/esobat/grupos/tec2a-g1.yml
+    - include: users/esobat/grupos/tec2a-g2.yml
+    - include: users/esobat/grupos/tec2b-g1.yml
+    - include: users/esobat/grupos/tec2b-g2.yml
+    - include: users/esobat/grupos/tec2c-g1.yml
+    - include: users/esobat/grupos/tec2c-g2.yml
+    - include: users/esobat/grupos/tec2d-g1.yml
+    - include: users/esobat/grupos/tec2d-g2.yml
+    - include: users/esobat/grupos/tec2e-g1.yml
+    - include: users/esobat/grupos/tec2e-g2.yml
+    - include: users/esobat/grupos/culttec-fiv.yml
+    - include: users/esobat/grupos/tec-fi.yml
+    - include: users/esobat/grupos/tec2-fi.yml
+    - include: users/esobat/grupos/tec-fii.yml
+    - include: users/esobat/grupos/tec2-fii.yml
+
     # Actualiza el SO
     - include: upgrade.yml

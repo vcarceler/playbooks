@@ -86,11 +86,9 @@
         - configure lxd2
         - configure lxd3
 
-    # Actualiza el SO
-    - include: upgrade.yml
-
     # Usuarios
     #- include: users/informatica-u1804/prueba.yml
 
     # Actualiza el SO
-    - include: upgrade.yml
+    #- include: upgrade.yml
+    - include: activate-unattended-upgrades.yml
