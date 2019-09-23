@@ -86,6 +86,3 @@
     # Usuarios
     - include: users/dibuix/dibuix.yml
       #- include: users/informatica-u1804/manteniment.yml
-
-    # Actualiza el SO
-    - include: upgrade.yml

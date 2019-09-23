@@ -103,6 +103,3 @@
 
     # Usuarios
     - include: users/docent.yml
-
-    # Actualiza el SO
-    - include: upgrade.yml

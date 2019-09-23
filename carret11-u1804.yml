@@ -101,6 +101,3 @@
     #- include: users/dam2a.yml
     #- include: users/dam2b.yml
     #- include: users/informatica-u1804/manteniment.yml
-
-    # Actualiza el SO
-    - include: upgrade.yml

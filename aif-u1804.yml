@@ -100,6 +100,3 @@
     - include: users/ga2.yml
     - include: users/afcat.yml
     - include: users/afeng.yml
-
-    # Actualiza el SO
-    - include: upgrade.yml

@@ -103,6 +103,3 @@
     - include: users/afcat.yml
     - include: users/afeng.yml
     - include: users/idiomas.yml
-
-    # Actualiza el SO
-    - include: upgrade.yml

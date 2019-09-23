@@ -140,6 +140,3 @@
     - include: users/esobat/grupos/tec2-fi.yml
     - include: users/esobat/grupos/tec-fii.yml
     - include: users/esobat/grupos/tec2-fii.yml
-
-    # Actualiza el SO
-    - include: upgrade.yml

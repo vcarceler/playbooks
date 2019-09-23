@@ -96,6 +96,3 @@
     - include: users/tecno/jmorcillo.yml
     - include: users/tecno/marce23.yml
     - include: users/tecno/estheranyonruiz.yml
-
-    # Actualiza el SO
-    - include: upgrade.yml
