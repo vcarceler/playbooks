@@ -12,4 +12,4 @@ ansible-playbook -i $playbooks/hosts $playbooks/dpt-aif.yml
 ansible-playbook -i $playbooks/hosts $playbooks/aif-u1804.yml
 ansible-playbook -i $playbooks/hosts $playbooks/aif-j1900-kernelparameter.yml
 ansible-playbook -i $playbooks/hosts $playbooks/users/aig/profesaig-users.yml
-
+ansible-playbook -i $playbooks/hosts $playbooks/users/aig/profesga-users.yml

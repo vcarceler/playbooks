@@ -1,10 +1,6 @@
 ---
-- hosts: carret11
+- hosts: dpt-psico
   user: root
-  connection: paramiko
-
-  vars:
-    grupos: adm,cdrom,dialout,kvm,libvirt,lpadmin,plugdev,sambashare,ubridge,vboxusers
 
   handlers:
     - name: restart sshd
@@ -41,7 +37,7 @@
     - include: default.yml
 
     # Cambio de hostname
-    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=carret11
+    - include: /home/vcarceler/playbooks/cambia-hostname.yml base_hostname=dptpsico
 
     # Cambio en la configuración de sshd para bloquear la autenticación con password
     - name: Bloquea la autenticación con password en /etc/ssh/sshd_config
@@ -52,9 +48,6 @@
       notify:
         - restart sshd
 
-    # Tareas particulares de las aulas de informática
-    - include: apagado-1455.yml
-    
     # Tareas generales de informática (DPT y Aulas)
     #
 
@@ -70,37 +63,26 @@
     # Instalación general de paquetes para Informàtica (DPT y Aulas)
     - include: informatica-paquetes-u1804.yml
 
-      
-    #
-    # ATENCIÓN
-    #
-    # Intentar configurar LXD en los Lenovo con wifi deja a la máquina
-    # con una configuración que no arranca.
-    #
-    # En estos portátiles no se configura LXD
-    #
-
     # Configura LXD
-    #- name: Instala bridge-utils y LXD
-    #  action: apt pkg={{ item }} state=present
-    #  with_items:
-    #    - bridge-utils
-    #    - lxd
+    - name: Instala bridge-utils y LXD
+      action: apt pkg={{ item }} state=present
+      with_items:
+        - bridge-utils
+        - lxd
 
     # Comprueba que no esté configurado LXD para no destrozar /etc/network/interfaces
     # en la segunda ejecución, al ser la interfaz principal br0
-    #- name: Comprueba si es necesario configurar el puente br0 en /etc/network/interfaces
-    #  lineinfile:
-    #    dest: /etc/network/interfaces
-    #    line: '# LXD configurado'
-    #  notify:
-    #    - configure br0
-    #    - configure lxd0
-    #    - configure lxd1
-    #    - configure lxd2
-    #    - configure lxd3
+    - name: Comprueba si es necesario configurar el puente br0 en /etc/network/interfaces
+      lineinfile:
+        dest: /etc/network/interfaces
+        line: '# LXD configurado'
+      notify:
+        - configure br0
+        - configure lxd0
+        - configure lxd1
+        - configure lxd2
+        - configure lxd3
 
     # Usuarios
-    - include: users/asix2.yml
-    #- include: users/dam2b.yml
-    #- include: users/informatica-u1804/manteniment.yml
+    - include: users/psico/psico.yml
+      #- include: users/informatica-u1804/manteniment.yml
