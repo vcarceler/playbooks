@@ -138,6 +138,7 @@
     - libreoffice-base
     - libreoffice-report-builder
     - lyx
+    - mysql-workbench
     - texlive-lang-spanish
     - inkscape
     - inkscape-open-symbols
