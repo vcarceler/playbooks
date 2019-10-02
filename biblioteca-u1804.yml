@@ -2,6 +2,9 @@
 - hosts: biblioteca
   user: root
 
+  vars:
+    grupos: adm,cdrom,dialout,lpadmin,plugdev,sambashare,vboxusers
+
   handlers:
     - name: restart sshd
       service:
@@ -87,4 +90,5 @@
         - configure lxd3
 
     # Usuarios
-    - include: users/biblioteca.yml
+    - include: users/biblioteca/biblioteca.yml
+    - include: users/docent.yml
