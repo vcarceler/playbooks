@@ -97,6 +97,14 @@
 
     # Usuarios
     - include: users/asixdam1b.yml
+
+    - include: users/esobat/grupos/inf2-t1.yml
+    - include: users/esobat/grupos/inf2-t2.yml
+    - include: users/esobat/grupos/inf2-t3.yml
+    - include: users/esobat/grupos/rob3-t1.yml
+    - include: users/esobat/grupos/rob3-t2.yml
+    - include: users/esobat/grupos/rob3-t3.yml
+
     - name: Borrado del usuario smx1c
       action: user name=smx1c state=absent remove=yes
     - name: Borrado del usuario asix2

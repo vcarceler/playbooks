@@ -101,6 +101,21 @@
 
     # Usuarios
     - include: users/dam2a.yml
+
+    - include: users/esobat/grupos/inf-fiv.yml
+    - include: users/esobat/grupos/inf-fiii.yml
+    - include: users/esobat/grupos/tec2-fi.yml
+    - include: users/esobat/grupos/tec2-fii.yml
+    - include: users/esobat/grupos/tec3a-g1.yml
+    - include: users/esobat/grupos/tec3a-g2.yml
+    - include: users/esobat/grupos/tec3b-g1.yml
+    - include: users/esobat/grupos/tec3b-g2.yml
+    - include: users/esobat/grupos/tec3c-g1.yml
+    - include: users/esobat/grupos/tec3c-g2.yml
+    - include: users/esobat/grupos/tec3d-g1.yml
+    - include: users/esobat/grupos/tec3d-g2.yml
+    - include: users/esobat/grupos/tec3e-g1.yml
+    - include: users/esobat/grupos/tec3e-g2.yml
     #- include: users/esobat/3a.yml
     #- include: users/esobat/3b.yml
     #- include: users/esobat/3c.yml
